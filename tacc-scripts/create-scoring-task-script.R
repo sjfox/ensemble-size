@@ -17,7 +17,7 @@ for(analysis_name in analysis_names){
       fileCmd <- paste0(' analysis_name="', analysis_name, 
                         '" forecast_date="', forecast_date, 
                         '" metric="', metric, '"')
-      endCmd <- "' ../tacc_scripts/create-and-score-ensembles.R"
+      endCmd <- "' ../tacc-scripts/create-and-score-ensembles.R"
       full_cmd <- paste0(startCmd, fileCmd, endCmd)
       # print(full_cmd)
       cat(full_cmd)               # add command
