@@ -51,18 +51,27 @@ load(here(paste0('raw-data/', metric, '-data.rda')))
 ##Load in the raw forecast data
 load(raw_forecast_file)
 
+forecast_data <- forecast_data %>% 
+  select(-horizon, -forecast_date) %>% 
+  rename(horizon = relative_horizon, forecast_date = reference_date)
+
 # Create all ensembles for date ----------------------------------------------------
 ensemble_forecasts <- get_all_ensemble_forecasts(forecast_data,
                                                  forecast_date,
                                                  model_combination_lookup)
 
 # Score all ensembles -----------------------------------------------------
+
 score_forecasts(
   forecasts = ensemble_forecasts,
   return_format = "wide",
   truth = truth_data,
-  metrics = "wis",
-  use_median_as_point = T) -> ensemble_scores
+  metrics = c("wis", 'quantile_coverage'),
+  use_median_as_point = T)  %>% 
+  select(model, location, horizon, temporal_resolution, 
+         target_variable, forecast_date, target_end_date,
+         wis, quantile_coverage_0.5, quantile_coverage_0.95) -> ensemble_scores
+
 
 # Save created files ------------------------------------------------------
 ## Ensemble forecasts
