@@ -13,7 +13,8 @@ sink(here('launcher/ensemble-creation-tasks.txt'))
 for(analysis_name in analysis_names){
   model_combos <- read_csv(here(file.path(raw_forecast_loc,
                                                 paste0(analysis_name, 
-                                                '-model-combination-lookup-table.csv')))) %>% 
+                                                '-model-combination-lookup-table.csv'))),
+                           progress = FALSE) %>% 
     pull(combination_num) %>% unique()
 
   for(model_num in model_combos){

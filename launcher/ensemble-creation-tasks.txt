@@ -1,4 +1,4 @@
-[1mindexing[0m [34mhosp1-model-combination-lookup-table.csv[0m [========================================] [32m8.21GB/s[0m, eta: [36m 0s[0m                                                                                                                                                  R CMD BATCH --no-restore --no-save '--args analysis_name="hosp1" ensemble_num="1"' ../tacc-scripts/create-and-score-ensembles.R
+R CMD BATCH --no-restore --no-save '--args analysis_name="hosp1" ensemble_num="1"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp1" ensemble_num="2"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp1" ensemble_num="3"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp1" ensemble_num="4"' ../tacc-scripts/create-and-score-ensembles.R
@@ -510,7 +510,7 @@ R CMD BATCH --no-restore --no-save '--args analysis_name="hosp1" ensemble_num="5
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp1" ensemble_num="510"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp1" ensemble_num="511"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp1" ensemble_num="512"' ../tacc-scripts/create-and-score-ensembles.R
-[1mindexing[0m [34mhosp2-model-combination-lookup-table.csv[0m [=======================================] [32m39.67GB/s[0m, eta: [36m 0s[0m                                                                                                                                                  R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="1"' ../tacc-scripts/create-and-score-ensembles.R
+R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="1"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="2"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="3"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="4"' ../tacc-scripts/create-and-score-ensembles.R
@@ -2558,7 +2558,7 @@ R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="2
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="2046"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="2047"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="2048"' ../tacc-scripts/create-and-score-ensembles.R
-[1mindexing[0m [34mdeath-model-combination-lookup-table.csv[0m [=======================================] [32m21.48GB/s[0m, eta: [36m 0s[0m                                                                                                                                                  R CMD BATCH --no-restore --no-save '--args analysis_name="death" ensemble_num="1"' ../tacc-scripts/create-and-score-ensembles.R
+R CMD BATCH --no-restore --no-save '--args analysis_name="death" ensemble_num="1"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="death" ensemble_num="2"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="death" ensemble_num="3"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="death" ensemble_num="4"' ../tacc-scripts/create-and-score-ensembles.R
@@ -3582,7 +3582,7 @@ R CMD BATCH --no-restore --no-save '--args analysis_name="death" ensemble_num="1
 R CMD BATCH --no-restore --no-save '--args analysis_name="death" ensemble_num="1022"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="death" ensemble_num="1023"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="death" ensemble_num="1024"' ../tacc-scripts/create-and-score-ensembles.R
-[1mindexing[0m [34mcase-model-combination-lookup-table.csv[0m [=======================================] [32m887.55MB/s[0m, eta: [36m 0s[0m                                                                                                                                                  R CMD BATCH --no-restore --no-save '--args analysis_name="case" ensemble_num="1"' ../tacc-scripts/create-and-score-ensembles.R
+R CMD BATCH --no-restore --no-save '--args analysis_name="case" ensemble_num="1"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="case" ensemble_num="2"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="case" ensemble_num="3"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="case" ensemble_num="4"' ../tacc-scripts/create-and-score-ensembles.R
