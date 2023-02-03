@@ -87,7 +87,7 @@ for(forecast in forecast_files){
                     use_median_as_point = T)  %>% 
       select(model, forecast_date, location, horizon, temporal_resolution, 
              target_variable, target_end_date,
-             wis, quantile_coverage_0.5, quantile_coverage_0.95) 
+             wis, quantile_coverage_0.5, quantile_coverage_0.9) 
 } 
 model_scores %>% 
   bind_rows() -> model_scores_all
