@@ -28,8 +28,11 @@ download_analysis_forecasts <- function(forecast_dates,
                                         forecast_target_names,
                                         forecast_rel_horizons,
                                         raw_forecast_loc,
-                                        forecast_hub = 'US'){
+                                        forecast_hub = 'US',
+                                        source = 'zoltar',
+                                        ...){
   for(cur_date in forecast_dates){
+    print(cur_date)
     forecast_data <- load_forecasts(
       models = models,
       targets = forecast_target_names,
@@ -38,7 +41,9 @@ download_analysis_forecasts <- function(forecast_dates,
       locations = NULL,
       hub = forecast_hub,
       types = "quantile",
-      verbose=F)
+      source = source,
+      verbose=F,
+      ...)
     
     forecast_data %>% 
       align_forecasts() %>% 
@@ -70,6 +75,15 @@ get_truth_data <- function(truth_target,
       target_variable = "inc case", 
       locations = NULL
     )
+  } else if(truth_target == 'flu_hosp'){
+    truth_data <- load_truth(
+      truth_source = "HealthData", 
+      target_variable = "inc flu hosp", 
+      locations = NULL,
+      hub = 'FluSight'
+    )
+  } else{
+    stop("Have not defined metric properly to pull truth data")
   }
   save(truth_data, file = truth_data_filename)
 }
@@ -88,7 +102,8 @@ get_k_model_combinations <- function(k, models){
 }
 
 get_all_model_combinations <-function(models,
-                                      ensemble_base_folder){
+                                      analysis_name){
+  # browser()
   ## Gets the model combination lookup table for the analysis
   tibble(k = 1:length(models),
          model_combinations = map(k, get_k_model_combinations, 
@@ -98,6 +113,7 @@ get_all_model_combinations <-function(models,
     mutate(model = models[model]) %>% 
     group_by(k, combo_num) %>% 
     filter(k == 1 | !('COVIDhub-4_week_ensemble' %in% model)) %>% 
+    filter(k == 1 | !('Flusight-ensemble' %in% model)) %>% 
     ungroup() %>% 
     nest(data = 'model') %>% 
     mutate(combination_num = seq_along(combo_num)) %>% 
@@ -106,6 +122,6 @@ get_all_model_combinations <-function(models,
   
   ## Save lookup table for future reference if needed
   write_csv(model_combination_lookup, 
-            file = paste0(ensemble_base_folder, 
-                          'model-combination-lookup-table.csv'))
+            file = paste0('raw-data/',analysis_name, 
+                          '-model-combination-lookup-table.csv'))
 }

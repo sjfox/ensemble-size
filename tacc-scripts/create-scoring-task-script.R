@@ -7,8 +7,8 @@ if(grepl('spencerfox', Sys.info()['user'])){
   raw_forecast_loc <- here(file.path('raw-data'))
 }
 
-analysis_names <- c('hosp1', 'hosp2', 'death', 'case')
-
+# analysis_names <- c('hosp1', 'hosp2', 'death', 'case', 'flu_hosp')
+analysis_names <- 'flu_hosp'
 sink(here('launcher/ensemble-creation-tasks.txt'))
 for(analysis_name in analysis_names){
   model_combos <- read_csv(here(file.path(raw_forecast_loc,

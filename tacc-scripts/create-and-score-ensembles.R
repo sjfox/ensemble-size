@@ -18,7 +18,7 @@ if(length(args) > 0)  { ## Then cycle through each element of the list and evalu
 }
 
 ## Run this line if running locally on Rstudio, without command line parameters
-# analysis_name = 'hosp2'; ensemble_num = 51
+# analysis_name = 'flu_hosp'; ensemble_num = 71
 
 library(tidyverse)
 library(covidHubUtils)
@@ -46,6 +46,7 @@ model_combination_lookup <- read_csv(here(file.path(raw_forecast_loc,
                                                            '-model-combination-lookup-table.csv'))))
 metric <- case_when(analysis_name == 'death' ~ 'death',
                     analysis_name == 'case' ~ 'case',
+                    analysis_name == 'flu_hosp' ~ 'flu_hosp',
                     T ~ 'hosp')
 model_name <- paste0("ensemble-", ensemble_num)
 
@@ -101,4 +102,3 @@ model_scores %>%
 # Save scores --------------------------------------------------------
 save(model_scores_all, 
      file = file.path(save_loc, paste0(model_name,'-scores.rda')))
-
