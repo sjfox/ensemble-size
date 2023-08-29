@@ -44,7 +44,7 @@ download_analysis_forecasts <- function(forecast_dates,
       types = "quantile",
       source = source,
       verbose=F,
-      ...) |> 
+      ...) %>% 
       filter(!is.na(temporal_resolution))
     
     forecast_data %>% 

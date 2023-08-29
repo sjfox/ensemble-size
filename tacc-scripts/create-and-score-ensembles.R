@@ -28,7 +28,7 @@ library(here)
 
 if(grepl('spencerfox', Sys.info()['user'])){
   raw_forecast_loc <- here(file.path('raw-data'))
-  save_loc <- paste0("processed-data/", analysis_name,"-analysis")
+  save_loc <- paste0("../processed-data/", analysis_name,"-analysis")
 } else if (grepl('frontera', Sys.info()['nodename'])){
   raw_forecast_loc <- here(file.path('raw-data'))
   save_loc <- paste0("/work2/02958/sjf826/frontera/ensemble-size/", 
