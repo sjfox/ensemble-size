@@ -47,6 +47,7 @@ model_combination_lookup <- read_csv(here(file.path(raw_forecast_loc,
 metric <- case_when(analysis_name == 'death' ~ 'death',
                     analysis_name == 'case' ~ 'case',
                     analysis_name == 'flu_hosp' ~ 'flu_hosp',
+                    analysis_name == '2023flu' ~ 'flu_hosp',
                     T ~ 'hosp')
 model_name <- paste0("ensemble-", ensemble_num)
 

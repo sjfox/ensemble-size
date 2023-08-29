@@ -19,7 +19,7 @@ models <- c('Flusight-baseline','PSI-DICE',
 forecast_dates <- as.character(c(seq.Date(from = ymd('2022-01-10'), 
                                         to = ymd('"2022-06-20"'), by = 7),
                                  seq.Date(from = ymd('2022-10-17'), 
-                                          to = ymd('"2023-01-02"'), by = 7)))
+                                          to = ymd('2023-04-03'), by = 7)))
 forecast_target_names <- c(paste(1:4, "wk ahead inc flu hosp"))
 forecast_rel_horizons <- c(1:4)
 hub <- 'FluSight'
@@ -43,8 +43,6 @@ download_analysis_forecasts(forecast_dates = forecast_dates,
                             hub_repo_path = '~/projects/Flusight-forecast-data/',
                             data_processed_subpath = 'data-forecasts/',
                             as_of = NULL)
-
-
 
 # Save truth data (if needed) ---------------------------------------------
 if(!file.exists(truth_data_filename)){

@@ -33,6 +33,7 @@ download_analysis_forecasts <- function(forecast_dates,
                                         ...){
   for(cur_date in forecast_dates){
     print(cur_date)
+    
     forecast_data <- load_forecasts(
       models = models,
       targets = forecast_target_names,
@@ -43,7 +44,8 @@ download_analysis_forecasts <- function(forecast_dates,
       types = "quantile",
       source = source,
       verbose=F,
-      ...)
+      ...) |> 
+      filter(!is.na(temporal_resolution))
     
     forecast_data %>% 
       align_forecasts() %>% 

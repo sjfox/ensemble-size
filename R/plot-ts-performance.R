@@ -152,7 +152,7 @@ plot_metric_ts_performance <- function(folder_path,
       background_grid(major = 'xy') +
       scale_x_date(date_labels = '%Y-%b') +
       guides(color = guide_legend(override.aes = list(linewidth = 5))) +
-      labs(x = NULL, y = 'Relative WIS', color = NULL) +
+      labs(x = NULL, y = 'Average WIS', color = NULL) +
       theme(legend.position = 'bottom') -> performance_plot
 
   
