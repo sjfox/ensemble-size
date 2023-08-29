@@ -90,7 +90,7 @@ for(forecast in forecast_files){
       score_forecasts(return_format = "wide",
                       truth = truth_data,
                       metrics = c("wis", 'quantile_coverage'),
-                      use_median_as_point = T)   |>  
+                      use_median_as_point = T)   %>%  
       select(model, forecast_date, location, horizon, temporal_resolution, 
              target_variable, target_end_date,
              wis, quantile_coverage_0.5, quantile_coverage_0.9)  
