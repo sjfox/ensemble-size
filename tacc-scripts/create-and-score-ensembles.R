@@ -18,7 +18,7 @@ if(length(args) > 0)  { ## Then cycle through each element of the list and evalu
 }
 
 ## Run this line if running locally on Rstudio, without command line parameters
-# analysis_name = 'flu_hosp'; ensemble_num = 71
+# analysis_name = '2023flu'; ensemble_num = 100
 
 library(tidyverse)
 library(covidHubUtils)
@@ -86,10 +86,11 @@ for(forecast in forecast_files){
       build_quantile_ensemble(method = "median",
                               forecast_date = forecast_date,
                               model_name = model_name) %>% 
+      mutate(forecast_count = max(forecast_count)) %>%
       score_forecasts(return_format = "wide",
                       truth = truth_data,
                       metrics = c("wis", 'quantile_coverage'),
-                      use_median_as_point = T)  %>% 
+                      use_median_as_point = T)   |>  
       select(model, forecast_date, location, horizon, temporal_resolution, 
              target_variable, target_end_date,
              wis, quantile_coverage_0.5, quantile_coverage_0.9)  
