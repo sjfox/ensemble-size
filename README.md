@@ -16,9 +16,15 @@
 1. Update the corresponding slurm files for running: `launcher/make-ensembles.slurm` and `launcher/make-multiyear.slurm`
 1. Run slurm script, which will call `tacc_scripts/create-and-score-ensembles.R` and `score-multiyear-ensembles.R`
 1. Output on tacc is saved to respective folders in the work directory, these can be downloaded and saved locally into the `processed-data/` folder.
-1. Run the summarize scripts
-1. `make-overall-forecast-plots.R`
-1. 
+1. Run the summarize scripts (`summarize-recent-ensemble-scores.R` and `summarize-multiyear-ensemble-scores.R`)
+1. Run `make-overall-forecast-plots.R`
+1. Run `make-raw_forecast-plots.R`
+1. Run `make-density-rank-plots.R`
+1. Run `make-prediction-interval-plots.R`
+1. Run `make-ts-plots.R`
+1. Run `pull-manuscript-stats.R`
+
+
 
 ## Contact
 Contact Spencer Fox (sjfox@uga.edu) with any questions.
