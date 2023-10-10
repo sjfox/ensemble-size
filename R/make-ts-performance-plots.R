@@ -110,6 +110,7 @@ plot_ts_performance <- function(summary_file_path,
       filter(season_week >= start_week_seq & season_week <= end_week_seq) |> 
       mutate(actual_year = ifelse(forecast_week > 35, as.numeric(season_start_year), as.numeric(season_start_year)+1)) |> 
       mutate(date = MMWRweek2Date(as.numeric(actual_year), forecast_week))  |> 
+      mutate(yval = ifelse(date < '2014-07-01' & model %in% c('Ensemble rank', 'Individual rank'), NA, yval)) |> 
       ggplot(aes(date, yval, color = model, group = interaction(model, season))) +
         geom_rect(data = train_rect,
                   aes(ymin=ymin, ymax=ymax,xmin=xmin,xmax=xmax), 
@@ -211,6 +212,7 @@ plot_ts_performance <- function(summary_file_path,
                   mutate(model = 'Individual rank')) |> 
       ungroup() |> 
       mutate(time_period = ifelse(forecast_date <= max_train_period, 'train', 'test')) |> 
+      mutate(yval = ifelse(time_period == 'train' & model %in% c('Ensemble rank', 'Individual rank'), NA, yval)) |> 
       ggplot(aes(forecast_date, yval, color = model, group = interaction(time_period, model))) +
       geom_rect(data = train_rect,
                 aes(ymin=ymin, ymax=ymax,xmin=xmin,xmax=xmax), 
@@ -295,45 +297,4 @@ save_plot( filename = 'figs/fluadmits_ts_dates.png',
            base_height = 6,
            base_asp = 1.5,
            bg = 'white')
-
-
-## Put together into a single figure.
-
-panel_plot <- plot_grid(
-  covidcase_overall + theme(legend.position='none'), 
-  covidadmits_overall + theme(legend.position='none'), 
-  coviddeaths_overall + theme(legend.position='none'), 
-  fluadmits_overall + theme(legend.position='none'),
-  my_overall + 
-    theme(legend.position='none') +
-    scale_x_continuous(breaks = seq(1, 23, by = 2)),
-  nrow = 2, align = 'hv') +
-  draw_plot(get_legend(my_overall + 
-                         guides(color = guide_legend(label.theme = element_text(size = 16),
-                                                     keywidth = 2, 
-                                                     keyheight = 2,
-                                                     override.aes = list(linewidth = 2), order = 1),
-                                fill = guide_legend(order = 1),
-                                linetype = guide_legend(label.theme = element_text(size = 16),
-                                                        keywidth = 2, 
-                                                        keyheight = 2,
-                                                        override.aes = list(linewidth = 2)))), 
-            x = .75, y = -.2)
-panel_plot
-
-save_plot('figs/overall-summary-fig.png', 
-          panel_plot, 
-          base_height = 7, 
-          base_asp = 1.6,
-          bg='white')
-
-save(my_overall,
-     covidcase_overall, 
-     covidadmits_overall, 
-     coviddeaths_overall, 
-     fluadmits_overall,
-     panel_plot,
-     file = 'figs/ggplot-objects/overall-summary-figs.rda')
-
-
 
