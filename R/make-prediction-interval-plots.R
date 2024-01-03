@@ -56,6 +56,7 @@ plot_pi_performance <- function(summary_file_path,
            `Individual rank` = ind_rank) |> 
     gather(key, value, -k) |> 
     ggplot(aes(k, value, color = key, fill = key)) +
+    geom_hline(yintercept = 0.9, color = 'darkred') +
     geom_ribbon(data = random_ensemble_vals |> 
                   mutate(key = 'Random'),
                 aes(x = k, ymin = min_val, ymax = max_val, fill = key), 

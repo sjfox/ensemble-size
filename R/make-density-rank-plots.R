@@ -47,11 +47,11 @@ plot_ranked_density <- function(ensemble_scores_folder,
     load(summary_score_file)
     
     ind_rank_combo <- individual_rank_scores$overall |> 
-      filter(k == 5,time_period == 'test') |> pull(combination_num)
+      filter(k == 4,time_period == 'test') |> pull(combination_num)
     
     ## Ensemble rank forecasts
     ens_rank_combo <- ensemble_rank_scores$overall |> 
-      filter(k == 5,time_period == 'test') |> pull(combination_num) 
+      filter(k == 4,time_period == 'test') |> pull(combination_num) 
     ## Get individual models and RT ensemble with others
     mod_info <- read_csv(model_info_path)
     combos_needed <- mod_info |> 
@@ -110,16 +110,16 @@ plot_ranked_density <- function(ensemble_scores_folder,
       bind_rows() |> 
       bind_rows(get_clean_model_scores('processed-data/my-ens-rank-ensemble-scores.csv',
                                            target_bounds = target_bounds) |> 
-                      filter(model == 'ens_rank-5'),
+                      filter(model == 'ens_rank-4'),
                 get_clean_model_scores('processed-data/my-ind-rank-ensemble-scores.csv',
                                        target_bounds = target_bounds) |> 
-                  filter(model == 'ind_rank-5')) -> all_model_scores
+                  filter(model == 'ind_rank-4')) -> all_model_scores
     
     
   combos_needed |> 
     bind_rows(tibble(combination_num = c(-1,-2),
                      model_name = c('Ensemble-Rank', 'Individual-Rank'),
-                     model = c('ens_rank-5', 'ind_rank-5'))) ->combos_needed
+                     model = c('ens_rank-4', 'ind_rank-4'))) ->combos_needed
   all_model_scores |> 
     mutate(score = exp(score)) |> 
     left_join(combos_needed,
@@ -132,10 +132,15 @@ plot_ranked_density <- function(ensemble_scores_folder,
     ungroup() -> model_ranks
     
   }
+  # browser()
+  ## Use below if want to order by median rank
+  # model_ranks |> 
+  #   group_by(model_name) |> 
+  #   summarize(avg_rank = median(rank_percentile)) -> model_ordering
   
   model_ranks |> 
     group_by(model_name) |> 
-    summarize(avg_rank = median(rank_percentile)) -> model_ordering
+    summarize(avg_rank = quantile(rank_percentile, 0.25)) -> model_ordering
   
   model_ranks |> 
     left_join(model_ordering, by = 'model_name') |> 
@@ -145,8 +150,7 @@ plot_ranked_density <- function(ensemble_scores_folder,
                         quantiles = 4, quantile_lines = TRUE,
                         bandwidth = 0.05) +
     scale_fill_viridis_d() +
-    scale_x_continuous(name="standardized rank", 
-                       limits=c(0,1)) +
+    scale_x_continuous(name="standardized rank") +
     labs(fill = 'Quartile', y = NULL, title = plot_title)
 }
 

@@ -11,16 +11,28 @@ sum(choose(7,1:7))
 
 
 ## Get the case decline in performance when including more models
-load(paste0('processed-data/case-score-summaries.rda'))
+load(paste0('processed-data/flu_hosp-score-summaries.rda'))
 overall_scores |> 
   filter(time_period == 'test',
          !rt_ensemble_mod) |>
   group_by(k) |>
   summarize(score = mean(avg_wis)) |>
-  filter(k == 4 | k == max(k)) |>
+  filter(k == 4 | k == 7) |>
   mutate(k = ifelse(k == 4, 'start', 'finish')) |>
   spread(k, score) |>
   mutate(wane_percent = (finish - start)/start)
+
+
+overall_scores |> 
+  filter(time_period == 'test',
+         !rt_ensemble_mod) |> 
+  filter(k == 4 | k == 7) |>
+  group_by(k) |> 
+  summarize(iqr = IQR(avg_wis)) |> 
+  mutate(k = ifelse(k == 4, 'start', 'finish')) |>
+  spread(k, iqr) |>
+  mutate(wane_percent = (finish - start)/start)
+
 
 overall_scores |> 
   filter(time_period == 'test',
@@ -34,7 +46,7 @@ overall_scores |>
 
 # Pull statistics about relative to R of forecasts --------------------
 pull_rt_comparison_stats <- function(analysis_name, score_col_name){
-  # browser()
+  browser()
   load(paste0('processed-data/', analysis_name, '-score-summaries.rda'))
   
   ## Get rt ensemble value 
@@ -156,4 +168,23 @@ overall_scores |>
   filter(rt_ensemble_mod)
 
 
+ensemble_rank_overall |> 
+  pull(model) |> unique() ->temp
 
+
+scores_by_location |>
+  filter(time_period == 'test',
+         model %in% temp) |> 
+  filter(k == 4) |> 
+  left_join(scores_by_location |> 
+              filter(rt_ensemble_mod, time_period == 'test') |> 
+              select(location, rt_avg_wis = avg_wis), by = 'location') |> 
+  mutate(rel_score = avg_wis/rt_avg_wis) |> 
+  summarize(mean(rel_score),
+            quantile(rel_score, probs = 0.25),
+            quantile(rel_score, probs = 0.75))
+rt_ensemble_val
+
+((overall_scores |>
+  filter(time_period == 'test',
+         model %in% temp) |> pull(avg_wis))/rt_ensemble_val) |> summary()

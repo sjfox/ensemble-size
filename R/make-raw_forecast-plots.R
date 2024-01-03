@@ -130,7 +130,7 @@ plot_grid(ex_ensemble_forecast_plot,
           nrow = 2, rel_heights = c(0.4, 0.8)) -> combined_fig1
 save_plot('figs/combined-fig-1.png', 
           combined_fig1, bg = 'white',
-          base_height = 9, base_asp = 1.2)
+          base_height = 10, base_asp = 1.2)
   
 
 

@@ -119,7 +119,7 @@ plot_location_performance <- function(summary_file_path,
       filter(geo_type == 'state') |> 
       distinct(location, location_name, abbreviation,population)
     locations_to_exclude <- c('60', '66', '69', '74')
-    
+    # browser()
     random_ensemble_vals |> 
       select(time_period, location, yval = mean_val) |> 
       mutate(model = 'Random') |> 
@@ -136,9 +136,10 @@ plot_location_performance <- function(summary_file_path,
                   select(time_period, location, yval = yval) |> 
                   mutate(model = 'Individual rank')) |> 
       ungroup() |> 
-      filter(time_period == 'test', !location%in% locations_to_exclude) |> 
+      filter(time_period == 'test', !(location%in% locations_to_exclude)) |> 
       left_join(locations, by = 'location') |> 
-      mutate(abbreviation = fct_reorder(abbreviation, population)) |> 
+      # mutate(abbreviation = fct_reorder(abbreviation, population)) |> 
+      # mutate(abbreviation = fct_reorder(abbreviation, as.numeric(abbreviation))) |> 
       ggplot(aes(abbreviation, yval/population, color = model, group = model)) +
       geom_line() +
       geom_point() +
@@ -168,14 +169,14 @@ save_plot( filename = 'figs/my_location.png',
 plot_location_performance(summary_file_path = 'processed-data/case-score-summaries.rda', 
                          score_col_name = avg_wis,
                          truth_yname = 'COVID-19 cases',
-                         score_yname = 'Relative WIS') -> case_location
+                         score_yname = 'Population Standardized WIS') -> case_location
 case_location
 
 ## Covid-19 hospital admissions overall plot
 plot_location_performance(summary_file_path = 'processed-data/hosp2-score-summaries.rda', 
                          score_col_name = avg_wis,
                          truth_yname = 'COVID-19 admissions',
-                         score_yname = 'Relative WIS') -> covidadmit_location
+                         score_yname = 'Population Standardized WIS') -> covidadmit_location
 covidadmit_location
 
 
@@ -183,7 +184,7 @@ covidadmit_location
 plot_location_performance(summary_file_path = 'processed-data/death-score-summaries.rda', 
                          score_col_name = avg_wis,
                          truth_yname = 'COVID-19 mortality',
-                         score_yname = 'Relative WIS') -> deaths_location
+                         score_yname = 'Population Standardized WIS') -> deaths_location
 deaths_location
 
 
@@ -191,7 +192,7 @@ deaths_location
 plot_location_performance(summary_file_path = 'processed-data/flu_hosp-score-summaries.rda', 
                          score_col_name = avg_wis,
                          truth_yname = 'Influenza admissions',
-                         score_yname = 'Relative WIS') -> fluadmits_location
+                         score_yname = 'Population Standardized WIS') -> fluadmits_location
 fluadmits_location
 
 
@@ -208,8 +209,8 @@ panel_plot
 
 save_plot('figs/location-summary.png', 
           panel_plot, 
-          base_height = 8, 
-          base_asp = 1.4,
+          base_height = 12, 
+          base_asp = 1.2,
           bg='white')
 
 

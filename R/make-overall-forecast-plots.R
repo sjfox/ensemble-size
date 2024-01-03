@@ -62,6 +62,14 @@ plot_overall_performance <- function(summary_file_path,
     summarize(min_val = min(yval),
               mean_val = mean(yval),
               max_val = max(yval)) -> random_ensemble_vals
+  
+  # overall_scores |> 
+  #   filter(tolower(time_period) == 'test') |> 
+  #   group_by(k) |> 
+  #   summarize(min_val = quantile(yval, probs = 0.025),
+  #             mean_val = mean(yval),
+  #             max_val = quantile(yval, probs = 0.95)) -> random_ensemble_vals
+  
   # browser()
   random_ensemble_vals |> 
     select(k, Random = mean_val) |> 
@@ -97,7 +105,8 @@ plot_overall_performance <- function(summary_file_path,
            color = NULL, 
            lty = NULL,
            fill = NULL) +
-      theme(legend.spacing.y = unit(0.0, "cm")) +
+      theme(legend.spacing.y = unit(0.0, "cm"),
+            legend.key.width = unit(1,'cm')) +
       guides(color = guide_legend(override.aes = list(linewidth = 1), order = 1),
              fill = guide_legend( order = 1),
              linetype = guide_legend(override.aes = list(linewidth = 1,
@@ -178,12 +187,12 @@ panel_plot <- plot_grid(
                       nrow = 2, align = 'hv') +
   draw_plot(get_legend(my_overall + 
                          guides(color = guide_legend(label.theme = element_text(size = 16),
-                                                     keywidth = 2, 
+                                                     keywidth = 4, 
                                                      keyheight = 2,
                                                      override.aes = list(linewidth = 2), order = 1),
                                 fill = guide_legend(order = 1),
                                 linetype = guide_legend(label.theme = element_text(size = 16),
-                                                        keywidth = 2, 
+                                                        keywidth = 4, 
                                                         keyheight = 2,
                                                         override.aes = list(linewidth = 2,
                                                                             color = c('grey30', '#764E9F'))))), 
@@ -193,7 +202,7 @@ panel_plot
 save_plot('figs/overall-summary-fig.png', 
           panel_plot, 
           base_height = 7, 
-          base_asp = 1.6,
+          base_asp = 1.65,
           bg='white')
 
 save(my_overall,

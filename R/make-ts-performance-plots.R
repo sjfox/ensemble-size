@@ -191,7 +191,7 @@ plot_ts_performance <- function(summary_file_path,
       geom_line() +
       labs(x = NULL, y = truth_yname) +
       scale_y_continuous(labels = scales::comma) +
-      scale_x_date(date_breaks = '6 months', date_labels = '%b-%Y', 
+      scale_x_date(date_breaks = '2 months', date_labels = '%b-%y', 
                    limits = ymd(c(min_train_period, max_test_period))) +
       background_grid(major = 'xy', minor = 'xy') -> ts_truth_scores
     
@@ -222,7 +222,7 @@ plot_ts_performance <- function(summary_file_path,
       background_grid(major = 'xy', minor = 'xy') +
       scale_color_manual(values = model_colors$color) +
       scale_y_log10() +
-      scale_x_date(date_breaks = '6 months', date_labels = '%b-%Y', 
+      scale_x_date(date_breaks = '2 months', date_labels = '%b-%y', 
                    limits = ymd(c(min_train_period, max_test_period))) +
       theme(legend.position = 'bottom',
             legend.justification = c(0.5,0.5)) +
