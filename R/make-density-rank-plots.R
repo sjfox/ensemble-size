@@ -141,9 +141,12 @@ plot_ranked_density <- function(ensemble_scores_folder,
   model_ranks |> 
     group_by(model_name) |> 
     summarize(avg_rank = quantile(rank_percentile, 0.25)) -> model_ordering
-  
+  # browser()
   model_ranks |> 
     left_join(model_ordering, by = 'model_name') |> 
+    mutate(model_name = ifelse(model_name %in% c('COVIDhub-4_week_ensemble', 
+                                                 'RT-Ensemble', 
+                                                 'Flusight-ensemble'), 'Published-ensemble', model_name)) |> 
     mutate(model_name = fct_reorder(model_name, avg_rank)) |> 
     ggplot(aes(y = model_name, x = rank_percentile, fill = factor(stat(quantile)))) +
     stat_density_ridges(geom = "density_ridges_gradient", calc_ecdf = TRUE,

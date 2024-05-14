@@ -13,7 +13,7 @@ plot_location_performance <- function(summary_file_path,
   # 
   # browser()
   
-  model_colors <- tibble(model = c('Baseline', 'Ensemble rank', 'Individual rank', 'Random', 'Real-time ensemble'),
+  model_colors <- tibble(model = c('Baseline', 'Ensemble rank', 'Individual rank', 'Random', 'Published ensemble'),
                          color = c('darkgrey', '#A16928', '#2887a1', 'black', '#764E9F'))
   
   if(grepl(pattern = 'multiyear', x = summary_file_path, fixed = T)){
@@ -59,7 +59,7 @@ plot_location_performance <- function(summary_file_path,
       mutate(model = 'Random') |> 
       bind_rows(rt_ensemble_vals |> 
                   select(time_period, location, yval = yval) |> 
-                  mutate(model = 'Real-time ensemble'),
+                  mutate(model = 'Published ensemble'),
                 baseline_vals |> 
                   select(time_period, location, yval = yval) |> 
                   mutate(model = 'Baseline'),
@@ -73,6 +73,7 @@ plot_location_performance <- function(summary_file_path,
       filter(time_period == 'Test') |> 
       mutate(location = factor(location, levels = c(paste0('HHS Region ', 1:10),
                                                     'US National'))) |> 
+      mutate(model = factor(model, levels = model_colors$model)) |> 
       ggplot(aes(location, yval, fill = model)) +
       geom_col(position = position_dodge()) +
       labs(x = NULL, y = score_yname, fill = NULL) +
@@ -125,7 +126,7 @@ plot_location_performance <- function(summary_file_path,
       mutate(model = 'Random') |> 
       bind_rows(rt_ensemble_vals |> 
                   select(time_period, location, yval = yval) |> 
-                  mutate(model = 'Real-time ensemble'),
+                  mutate(model = 'Published ensemble'),
                 baseline_vals |> 
                   select(time_period, location, yval = yval) |> 
                   mutate(model = 'Baseline'),
@@ -139,7 +140,8 @@ plot_location_performance <- function(summary_file_path,
       filter(time_period == 'test', !(location%in% locations_to_exclude)) |> 
       left_join(locations, by = 'location') |> 
       # mutate(abbreviation = fct_reorder(abbreviation, population)) |> 
-      # mutate(abbreviation = fct_reorder(abbreviation, as.numeric(abbreviation))) |> 
+      # mutate(abbreviation = fct_reorder(abbreviation, as.numeric(abbreviation))) |>
+      mutate(model = factor(model, levels = model_colors$model)) |> 
       ggplot(aes(abbreviation, yval/population, color = model, group = model)) +
       geom_line() +
       geom_point() +

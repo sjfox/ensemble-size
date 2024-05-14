@@ -16,7 +16,7 @@ plot_ts_performance <- function(summary_file_path,
   # 
   # browser()
   
-  model_colors <- tibble(model = c('Baseline', 'Ensemble rank', 'Individual rank', 'Random', 'Real-time ensemble'),
+  model_colors <- tibble(model = c('Baseline', 'Ensemble rank', 'Individual rank', 'Random', 'Published ensemble'),
                          color = c('darkgrey', '#A16928', '#2887a1', 'black', '#764E9F'))
   
   if(grepl(pattern = 'multiyear', x = summary_file_path, fixed = T)){
@@ -87,7 +87,7 @@ plot_ts_performance <- function(summary_file_path,
       mutate(model = 'Random') |> 
       bind_rows(rt_ensemble_vals |> 
                   select(season, forecast_week, yval = yval) |> 
-                  mutate(model = 'Real-time ensemble'),
+                  mutate(model = 'Published ensemble'),
                 baseline_vals |> 
                   select(season, forecast_week, yval = yval) |> 
                   mutate(model = 'Baseline'),
@@ -111,6 +111,7 @@ plot_ts_performance <- function(summary_file_path,
       mutate(actual_year = ifelse(forecast_week > 35, as.numeric(season_start_year), as.numeric(season_start_year)+1)) |> 
       mutate(date = MMWRweek2Date(as.numeric(actual_year), forecast_week))  |> 
       mutate(yval = ifelse(date < '2014-07-01' & model %in% c('Ensemble rank', 'Individual rank'), NA, yval)) |> 
+      mutate(model = factor(model, levels = model_colors$model)) |> 
       ggplot(aes(date, yval, color = model, group = interaction(model, season))) +
         geom_rect(data = train_rect,
                   aes(ymin=ymin, ymax=ymax,xmin=xmin,xmax=xmax), 
@@ -200,7 +201,7 @@ plot_ts_performance <- function(summary_file_path,
       mutate(model = 'Random') |> 
       bind_rows(rt_ensemble_vals |> 
                   select(forecast_date, yval = yval) |> 
-                  mutate(model = 'Real-time ensemble'),
+                  mutate(model = 'Published ensemble'),
                 baseline_vals |> 
                   select(forecast_date, yval = yval) |> 
                   mutate(model = 'Baseline'),
@@ -213,6 +214,7 @@ plot_ts_performance <- function(summary_file_path,
       ungroup() |> 
       mutate(time_period = ifelse(forecast_date <= max_train_period, 'train', 'test')) |> 
       mutate(yval = ifelse(time_period == 'train' & model %in% c('Ensemble rank', 'Individual rank'), NA, yval)) |> 
+      mutate(model = factor(model, levels = model_colors$model)) |> 
       ggplot(aes(forecast_date, yval, color = model, group = interaction(time_period, model))) +
       geom_rect(data = train_rect,
                 aes(ymin=ymin, ymax=ymax,xmin=xmin,xmax=xmax), 

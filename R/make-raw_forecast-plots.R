@@ -92,7 +92,7 @@ truth_data |>
   
 
 rt_ensemble_forecasts_df |> 
-  mutate(model = 'Real-time ensemble') |> 
+  mutate(model = 'Published ensemble') |> 
   bind_rows(ensemble_rank_forecasts_df |> 
               mutate(model = 'Ensemble rank')) |> 
   ggplot(aes(target_end_date, mid, color = model, group = interaction(reference_date,model))) + 

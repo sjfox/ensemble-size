@@ -13,7 +13,7 @@ plot_horizon_performance <- function(summary_file_path,
   # 
   # browser()
   
-  model_colors <- tibble(model = c('Baseline', 'Ensemble rank', 'Individual rank', 'Random', 'Real-time ensemble'),
+  model_colors <- tibble(model = c('Baseline', 'Ensemble rank', 'Individual rank', 'Random', 'Published ensemble'),
                          color = c('darkgrey', '#A16928', '#2887a1', 'black', '#764E9F'))
   
   if(grepl(pattern = 'multiyear', x = summary_file_path, fixed = T)){
@@ -59,7 +59,7 @@ plot_horizon_performance <- function(summary_file_path,
       mutate(model = 'Random') |> 
       bind_rows(rt_ensemble_vals |> 
                   select(time_period, target, yval = yval) |> 
-                  mutate(model = 'Real-time ensemble'),
+                  mutate(model = 'Published ensemble'),
                 baseline_vals |> 
                   select(time_period, target, yval = yval) |> 
                   mutate(model = 'Baseline'),
@@ -71,6 +71,7 @@ plot_horizon_performance <- function(summary_file_path,
                   mutate(model = 'Individual rank')) |> 
       ungroup() |> 
       filter(time_period == 'Test') |> 
+      mutate(model = factor(model, levels = model_colors$model)) |> 
       ggplot(aes(model, yval, fill = model)) +
       geom_col() +
       facet_wrap(~target, scales = 'free_y', nrow = 2) +
@@ -119,7 +120,7 @@ plot_horizon_performance <- function(summary_file_path,
       mutate(model = 'Random') |> 
       bind_rows(rt_ensemble_vals |> 
                   select(time_period, horizon, yval = yval) |> 
-                  mutate(model = 'Real-time ensemble'),
+                  mutate(model = 'Published ensemble'),
                 baseline_vals |> 
                   select(time_period, horizon, yval = yval) |> 
                   mutate(model = 'Baseline'),
@@ -131,6 +132,7 @@ plot_horizon_performance <- function(summary_file_path,
                   mutate(model = 'Individual rank')) |> 
       ungroup() |> 
       filter(time_period == 'test') |> 
+      mutate(model = factor(model, levels = model_colors$model)) |> 
       ggplot(aes(horizon, yval, color = model)) +
       geom_line() +
       labs(x = 'Forecast horizon', y = score_yname, color = NULL,
@@ -193,13 +195,13 @@ panel_plot <- plot_grid(
   covidadmit_horizon + theme(legend.position='none'), 
   deaths_horizon + theme(legend.position='none'), 
   fluadmits_horizon + theme(legend.position='none'),
-  nrow = 2, align = 'hv') |> plot_grid(get_legend(case_horizon), nrow = 1, rel_widths = c(1, .2))
+  nrow = 2, align = 'hv') |> plot_grid(get_legend(case_horizon), nrow = 1, rel_widths = c(1, .23))
 panel_plot
 
 save_plot('figs/horizon-summary.png', 
           panel_plot, 
           base_height = 6, 
-          base_asp = 1.6,
+          base_asp = 1.7,
           bg='white')
 
 

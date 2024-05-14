@@ -64,7 +64,7 @@ plot_pi_performance <- function(summary_file_path,
     geom_line(size = .7) +
     scale_color_manual(values = c('#A16928', '#2887a1', 'black')) +
     scale_fill_manual(values = c('white', 'white', 'black')) +
-    geom_hline(data = tibble(line_name = c('Real-time ensemble', 'Baseline'),
+    geom_hline(data = tibble(line_name = c('Published ensemble', 'Baseline'),
                              yval = c(rt_ensemble_val,
                                       baseline_val)),
                aes(yintercept = yval, lty = line_name), color = 'grey30', size = .65) +
@@ -142,12 +142,12 @@ pi_panel_plot <- plot_grid(
   nrow = 2, align = 'hv') |> 
   plot_grid(get_legend(covidcase_pi_overall + 
                          guides(color = guide_legend(label.theme = element_text(size = 16),
-                                                     keywidth = 2, 
+                                                     keywidth = 3.5, 
                                                      keyheight = 2,
                                                      override.aes = list(linewidth = 2), order = 1),
                                 fill = guide_legend(order = 1),
                                 linetype = guide_legend(label.theme = element_text(size = 16),
-                                                        keywidth = 2, 
+                                                        keywidth = 3.5, 
                                                         keyheight = 2,
                                                         override.aes = list(linewidth = 2)))),
             nrow = 1, rel_widths = c(2.8,1)
@@ -157,8 +157,7 @@ pi_panel_plot
 save_plot('figs/overall-pi-summary-fig.png', 
           pi_panel_plot, 
           base_height = 7, 
-          base_asp = 1.4,
+          base_asp = 1.6,
           bg='white')
-
 
 

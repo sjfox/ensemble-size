@@ -75,34 +75,36 @@ plot_overall_performance <- function(summary_file_path,
                   mutate(key = 'Random'),
                 aes(x = k, ymin = min_val/baseline_val, ymax = max_val/baseline_val, fill = key), 
                 alpha = .1, color = NA, inherit.aes=F)   +
-    geom_line() +
-    scale_color_manual(values = c('#A16928', '#2887a1', 'black')) +
+    geom_line(size = .7) +
+    geom_hline(data = tibble(key = c('Published ensemble'),
+                             yval = c(rt_ensemble_val/baseline_val)),
+               aes(yintercept = yval, lty = key), color = '#764E9F', size = .8) +
+    geom_hline(data = tibble(key = c('Baseline'),
+                             yval = c(baseline_val/baseline_val)),
+               aes(yintercept = yval, lty = key), color = 'grey30', size = .8) +
+    scale_linetype_manual(values = c(3, 2)) +
+    scale_color_manual(values = c( '#A16928', '#2887a1','black')) +
     scale_fill_manual(values = c('white', 'white', 'black')) +
-    geom_label_repel(data = tibble(x = Inf,
-                                   y = baseline_val/baseline_val,
-                                   label = 'Baseline'),
-                     aes(x=x, y=y, label=label),
-                     color = 'grey30',
-                     nudge_y = baseline_val/baseline_val*.15,
-                     inherit.aes = FALSE) +
-    geom_hline(yintercept = rt_ensemble_val/baseline_val, lty = 2, color = 'grey30') +
-    geom_hline(yintercept = baseline_val/baseline_val, lty = 3, color = 'grey30') +
-    geom_label_repel(data = tibble(x = Inf,
-                                   y = rt_ensemble_val,
-                                   label = 'RT Ensemble'),
-                     aes(x=x, y=y/baseline_val, label=label),
-                     color = 'grey30',
-                     nudge_y = rt_ensemble_val/baseline_val*.15,
-                     inherit.aes = FALSE) +
-    coord_cartesian(ylim = c(min(random_ensemble_vals$min_val/baseline_val)*.975, baseline_val/baseline_val*1.1)) +
+    coord_cartesian(ylim = c(min(rt_ensemble_val/baseline_val, 
+                                 (random_ensemble_vals |> 
+                                    mutate(key = 'Random') |> 
+                                    pull(min_val))/baseline_val)*.95, 
+                             baseline_val/baseline_val*1.1)) +
     # background_grid(major ='xy') +
     labs(x = 'Number of included models', 
          y = 'Relative forecast score', 
          title = plot_title, 
          color = NULL, 
+         lty = NULL,
          fill = NULL) +
-    guides(color = guide_legend(override.aes = list(linewidth = 1))) +
+    theme(legend.spacing.y = unit(0.0, "cm"),
+          legend.key.width = unit(1,'cm')) +
+    guides(color = guide_legend(override.aes = list(linewidth = 1), order = 1),
+           fill = guide_legend( order = 1),
+           linetype = guide_legend(override.aes = list(linewidth = 1,
+                                                       color = c('grey30', '#764E9F')), order = 2)) +
     scale_x_continuous(breaks = 1:max(random_ensemble_vals$k)) +
+    # scale_y_continuous(breaks = seq(0.4, 1.1, by = .1)) +
     NULL
   
 }
@@ -111,7 +113,7 @@ plot_overall_performance <- function(summary_file_path,
 ## Multiyear overall plot
 plot_overall_performance(summary_file_path = 'processed-data/multiyear-score-summaries.rda', 
                          score_col_name = score,
-                         plot_title = 'Multiyear ILI %') -> my_overall
+                         plot_title = 'ILI %') -> my_overall
 my_overall
 save_plot( filename = 'figs/multiyear-train-overall.png', 
            my_overall,
@@ -166,26 +168,32 @@ save_plot( filename = 'figs/fluadmits-train-overall.png',
 
 ## Put together into a single figure.
 
-panel_plot <- plot_grid(my_overall + 
-                          theme(legend.position='none') +
-                          scale_x_continuous(breaks = seq(1, 23, by = 2)),
-                        covidcase_overall + theme(legend.position='none'), 
+panel_plot <- plot_grid(covidcase_overall + theme(legend.position='none'), 
                         covidadmits_overall + theme(legend.position='none'), 
                         coviddeaths_overall + theme(legend.position='none'), 
                         fluadmits_overall + theme(legend.position='none'),
+                        my_overall + 
+                          theme(legend.position='none') +
+                          scale_x_continuous(breaks = seq(1, 23, by = 2)),
                         nrow = 2, align = 'hv') +
   draw_plot(get_legend(my_overall + 
                          guides(color = guide_legend(label.theme = element_text(size = 16),
-                                                     keywidth = 2, 
+                                                     keywidth = 4, 
                                                      keyheight = 2,
-                                                     override.aes = list(linewidth = 2)))), 
+                                                     override.aes = list(linewidth = 2), order = 1),
+                                fill = guide_legend(order = 1),
+                                linetype = guide_legend(label.theme = element_text(size = 16),
+                                                        keywidth = 4, 
+                                                        keyheight = 2,
+                                                        override.aes = list(linewidth = 2,
+                                                                            color = c('grey30', '#764E9F'))))), 
             x = .75, y = -.2)
 panel_plot
 
 save_plot('figs/train-overall-summary-fig.png', 
           panel_plot, 
           base_height = 7, 
-          base_asp = 1.6,
+          base_asp = 1.7,
           bg='white')
 
 save(my_overall,

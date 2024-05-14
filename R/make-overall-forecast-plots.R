@@ -72,30 +72,32 @@ plot_overall_performance <- function(summary_file_path,
   
   # browser()
   random_ensemble_vals |> 
-    select(k, Random = mean_val) |> 
-    left_join(ensemble_rank_vals, by = 'k') |> 
-    left_join(ind_rank_vals, by = 'k') |> 
-    rename(`Ensemble rank` = ens_rank,
-           `Individual rank` = ind_rank) |> 
+    select(k, `All ensembles` = mean_val) |> 
+    # left_join(ensemble_rank_vals, by = 'k') |> 
+    # left_join(ind_rank_vals, by = 'k') |> 
+    # rename(`Ensemble rank` = ens_rank,
+           # `Individual rank` = ind_rank) |> 
     gather(key, value, -k) |> 
     ggplot(aes(k, value/baseline_val, color = key, fill = key)) +
       geom_ribbon(data = random_ensemble_vals |> 
-                    mutate(key = 'Random'),
+                    mutate(key = 'All ensembles'),
                   aes(x = k, ymin = min_val/baseline_val, ymax = max_val/baseline_val, fill = key), 
                   alpha = .1, color = NA, inherit.aes=F)   +
       geom_line(size = .7) +
-      geom_hline(data = tibble(key = c('Real-time ensemble'),
+      geom_hline(data = tibble(key = c('Published ensemble'),
                                yval = c(rt_ensemble_val/baseline_val)),
                  aes(yintercept = yval, lty = key), color = '#764E9F', size = .8) +
-      geom_hline(data = tibble(key = c('Baseline'),
-                             yval = c(baseline_val/baseline_val)),
-               aes(yintercept = yval, lty = key), color = 'grey30', size = .8) +
-      scale_linetype_manual(values = c(3, 2)) +
-      scale_color_manual(values = c( '#A16928', '#2887a1','black')) +
-      scale_fill_manual(values = c('white', 'white', 'black')) +
+      # geom_hline(data = tibble(key = c('Baseline'),
+      #                        yval = c(baseline_val/baseline_val)),
+      #          aes(yintercept = yval, lty = key), color = 'grey30', size = .8) +
+      scale_linetype_manual(values = c(2)) +
+      # scale_color_manual(values = c( '#A16928', '#2887a1','black')) +
+      # scale_fill_manual(values = c('white', 'white', 'black')) +
+    scale_color_manual(values = c('black')) +
+    scale_fill_manual(values = c('black')) +
       coord_cartesian(ylim = c(min(rt_ensemble_val/baseline_val, 
                                    (random_ensemble_vals |> 
-                                     mutate(key = 'Random') |> 
+                                     mutate(key = 'All ensembles') |> 
                                      pull(min_val))/baseline_val)*.95, 
                                baseline_val/baseline_val*1.1)) +
       # background_grid(major ='xy') +
@@ -110,7 +112,7 @@ plot_overall_performance <- function(summary_file_path,
       guides(color = guide_legend(override.aes = list(linewidth = 1), order = 1),
              fill = guide_legend( order = 1),
              linetype = guide_legend(override.aes = list(linewidth = 1,
-                                                         color = c('grey30', '#764E9F')), order = 2)) +
+                                                         color = c('#764E9F')), order = 2)) +
       scale_x_continuous(breaks = 1:max(random_ensemble_vals$k)) +
       # scale_y_continuous(breaks = seq(0.4, 1.1, by = .1)) +
       NULL
@@ -185,17 +187,17 @@ panel_plot <- plot_grid(
                         theme(legend.position='none') +
                         scale_x_continuous(breaks = seq(1, 23, by = 2)),
                       nrow = 2, align = 'hv') +
-  draw_plot(get_legend(my_overall + 
+  draw_plot(get_legend(my_overall +
                          guides(color = guide_legend(label.theme = element_text(size = 16),
-                                                     keywidth = 4, 
+                                                     keywidth = 4,
                                                      keyheight = 2,
                                                      override.aes = list(linewidth = 2), order = 1),
                                 fill = guide_legend(order = 1),
                                 linetype = guide_legend(label.theme = element_text(size = 16),
-                                                        keywidth = 4, 
+                                                        keywidth = 4,
                                                         keyheight = 2,
                                                         override.aes = list(linewidth = 2,
-                                                                            color = c('grey30', '#764E9F'))))), 
+                                                                            color = c('#764E9F'))))),
             x = .75, y = -.2)
 panel_plot
 
@@ -212,6 +214,3 @@ save(my_overall,
      fluadmits_overall,
      panel_plot,
      file = 'figs/ggplot-objects/overall-summary-figs.rda')
-
-
-
