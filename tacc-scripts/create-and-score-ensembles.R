@@ -18,7 +18,7 @@ if(length(args) > 0)  { ## Then cycle through each element of the list and evalu
 }
 
 ## Run this line if running locally on Rstudio, without command line parameters
-# analysis_name = '2023flu'; ensemble_num = 100
+# analysis_name = 'hosp2'; ensemble_num = 100
 
 library(tidyverse)
 library(covidHubUtils)
@@ -93,7 +93,7 @@ for(forecast in forecast_files){
                       use_median_as_point = T)   %>%  
       select(model, forecast_date, location, horizon, temporal_resolution, 
              target_variable, target_end_date,
-             wis, coverage_0.5, coverage_0.9)  
+             wis, coverage_50, coverage_90)  
   } else{
     model_scores[[match(forecast, forecast_files)]] <- NULL
   }
