@@ -16,28 +16,28 @@ get_model_score_summaries <- function(file_path,
   model_scores_all |> 
     group_by(time_period, model) %>% 
     summarize(avg_wis = mean(wis),
-              q50 = mean(quantile_coverage_0.5),
-              q90 = mean(quantile_coverage_0.9), 
+              q50 = mean(coverage_50),
+              q90 = mean(coverage_95), 
               .groups = 'drop') -> overall_score
   
   model_scores_all |> 
     group_by(time_period, forecast_date, model) %>% 
     summarize(avg_wis = mean(wis),
-              q50 = mean(quantile_coverage_0.5),
-              q90 = mean(quantile_coverage_0.9), 
+              q50 = mean(coverage_50),
+              q90 = mean(coverage_95), 
               .groups = 'drop') -> score_by_date
   model_scores_all |> 
     group_by(time_period, model, horizon) %>% 
     summarize(avg_wis = mean(wis),
-              q50 = mean(quantile_coverage_0.5),
-              q90 = mean(quantile_coverage_0.9), 
+              q50 = mean(coverage_50),
+              q90 = mean(coverage_95), 
               .groups = 'drop') -> score_by_fcast_horizon
   
   model_scores_all |>
     group_by(time_period, model, location) %>% 
     summarize(avg_wis = mean(wis),
-              q50 = mean(quantile_coverage_0.5),
-              q90 = mean(quantile_coverage_0.9), 
+              q50 = mean(coverage_50),
+              q90 = mean(coverage_95), 
               .groups = 'drop')  -> score_by_location
   
   return(list(overall_score = overall_score,

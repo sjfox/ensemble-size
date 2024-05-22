@@ -18,12 +18,18 @@
 1. Output on tacc is saved to respective folders in the work directory, these can be downloaded and saved locally into the `processed-data/` folder.
 1. Run the summarize scripts (`summarize-recent-ensemble-scores.R` and `summarize-multiyear-ensemble-scores.R`)
 1. Run `make-overall-forecast-plots.R`
-1. Run `make-raw_forecast-plots.R`
+1. Run `make-overall-forecast-plots-full.R`
+1. Run `make-ensemble-building-plot.R`
 1. Run `make-ts-performance-plots.R`
 1. Run `make-horizon-performance-plots.R`
 1. Run `make-density-rank-plots.R`
 1. Run `make-prediction-interval-plots.R`
-1. Run `pull-manuscript-stats.R`
+
+1. Run `construct-table1.R`
+1. Run `pull-manuscript-stats.R` to get some of the other statistics from short report
+
+
+1. Run `make-raw_forecast-plots.R`
 
 
 

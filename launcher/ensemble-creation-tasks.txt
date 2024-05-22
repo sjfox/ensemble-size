@@ -1,139 +1,187 @@
 Called from: plot_overall_performance(summary_file_path = "processed-data/multiyear-score-summaries.rda", 
     score_col_name = score, plot_title = "ILI %")
--save '--args analysis_name="hosp2" ensemble_num="2"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="3"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="4"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="5"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="6"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="7"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="8"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="9"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="10"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="11"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="12"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="13"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="14"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="15"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="16"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="17"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="18"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="19"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="20"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="21"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="22"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="23"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="24"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="25"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="26"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="27"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="28"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="29"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="30"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="31"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="32"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="33"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="34"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="35"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="36"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="37"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="38"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="39"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="40"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="41"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="42"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="43"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="44"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="45"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="46"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="47"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="48"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="49"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="50"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="51"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="52"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="53"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="54"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="55"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="56"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="57"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="58"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="59"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="60"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="61"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="62"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="63"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="64"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="65"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="66"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="67"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="68"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="69"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="70"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="71"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="72"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="73"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="74"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="75"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="76"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="77"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="78"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="79"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="80"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="81"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="82"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="83"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="84"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="85"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="86"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="87"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="88"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="89"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="90"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="91"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="92"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="93"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="94"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="95"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="96"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="97"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="98"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="99"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="100"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="101"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="102"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="103"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="104"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="105"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="106"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="107"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="108"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="109"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="110"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="111"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="112"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="113"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="114"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="115"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="116"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="117"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="118"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="119"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="120"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="121"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="122"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="123"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="124"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="125"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="126"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="127"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="128"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="129"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="130"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="131"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="132"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="133"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="134"' ../tacc-scripts/create-and-score-ensembles.R
-R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="135"' ../tacc-scripts/create-and-score-ensembles.R
+[1mindexing[0m [34mflu_hosp-model-combination-lookup-table.csv[0m [===================================================================] [32m2.85GB/s[0m, eta: [36m 0s[0m                                                                                                                                                                                # A tibble: 1,025 × 3
+   combination_num     k model              
+             <dbl> <dbl> <chr>              
+ 1               1     1 Flusight-baseline  
+ 2               2     1 PSI-DICE           
+ 3               3     1 SigSci-TSENS       
+ 4               4     1 GT-FluFNP          
+ 5               5     1 CMU-TimeSeries     
+ 6               6     1 SigSci-CREG        
+ 7               7     1 SGroup-RandomForest
+ 8               8     1 MOBS-GLEAM_FLUH    
+ 9               9     1 Flusight-ensemble  
+10              10     2 Flusight-baseline  
+# ℹ 1,015 more rows
+# ℹ Use `print(n = ...)` to see more rows
+# A tibble: 1,025 × 3
+   combination_num     k model              
+             <dbl> <dbl> <chr>              
+ 1               1     1 Flusight-baseline  
+ 2               2     1 PSI-DICE           
+ 3               3     1 SigSci-TSENS       
+ 4               4     1 GT-FluFNP          
+ 5               5     1 CMU-TimeSeries     
+ 6               6     1 SigSci-CREG        
+ 7               7     1 SGroup-RandomForest
+ 8               8     1 MOBS-GLEAM_FLUH    
+ 9               9     1 Flusight-ensemble  
+10              10     2 Flusight-baseline  
+# ℹ 1,015 more rows
+# ℹ Use `print(n = ...)` to see more rows
+[1mindexing[0m [34mflu_hosp-model-combination-lookup-table.csv[0m [===================================================================] [32m2.95GB/s[0m, eta: [36m 0s[0m                                                                                                                                                                                # A tibble: 1,025 × 3
+   combination_num     k model              
+             <dbl> <dbl> <chr>              
+ 1               1     1 Flusight-baseline  
+ 2               2     1 PSI-DICE           
+ 3               3     1 SigSci-TSENS       
+ 4               4     1 GT-FluFNP          
+ 5               5     1 CMU-TimeSeries     
+ 6               6     1 SigSci-CREG        
+ 7               7     1 SGroup-RandomForest
+ 8               8     1 MOBS-GLEAM_FLUH    
+ 9               9     1 Flusight-ensemble  
+10              10     2 Flusight-baseline  
+# ℹ 1,015 more rows
+# ℹ Use `print(n = ...)` to see more rows
+# A tibble: 4 × 3
+  combination_num     k model            
+            <dbl> <dbl> <chr>            
+1             100     4 Flusight-baseline
+2             100     4 PSI-DICE         
+3             100     4 GT-FluFNP        
+4             100     4 SigSci-CREG      
+# A tibble: 34,776 × 16
+   model    forecast_date location horizon temporal_resolution target_variable target_end_date type   quantile value location_name population
+   <chr>    <date>        <chr>      <dbl> <chr>               <chr>           <date>          <chr>     <dbl> <dbl> <chr>              <dbl>
+ 1 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.01  2606. United States  332875137
+ 2 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.025 3397. United States  332875137
+ 3 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.05  4263. United States  332875137
+ 4 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.1   5242. United States  332875137
+ 5 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.15  5934. United States  332875137
+ 6 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.2   6475. United States  332875137
+ 7 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.25  6936. United States  332875137
+ 8 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.3   7342. United States  332875137
+ 9 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.35  7737. United States  332875137
+10 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.4   8124. United States  332875137
+# ℹ 34,766 more rows
+# ℹ 4 more variables: geo_type <chr>, geo_value <chr>, abbreviation <chr>, full_location_name <chr>
+# ℹ Use `print(n = ...)` to see more rows
+# A tibble: 34,776 × 18
+   model    forecast_date reference_date location horizon relative_horizon temporal_resolution target_variable target_end_date type  quantile
+   <chr>    <date>        <date>         <chr>    <chr>              <dbl> <chr>               <chr>           <date>          <chr>    <dbl>
+ 1 PSI-DICE 2022-02-14    2022-02-14     US       1                      1 day                 inc hosp        2022-02-15      quan…    0.01 
+ 2 PSI-DICE 2022-02-14    2022-02-14     US       1                      1 day                 inc hosp        2022-02-15      quan…    0.025
+ 3 PSI-DICE 2022-02-14    2022-02-14     US       1                      1 day                 inc hosp        2022-02-15      quan…    0.05 
+ 4 PSI-DICE 2022-02-14    2022-02-14     US       1                      1 day                 inc hosp        2022-02-15      quan…    0.1  
+ 5 PSI-DICE 2022-02-14    2022-02-14     US       1                      1 day                 inc hosp        2022-02-15      quan…    0.15 
+ 6 PSI-DICE 2022-02-14    2022-02-14     US       1                      1 day                 inc hosp        2022-02-15      quan…    0.2  
+ 7 PSI-DICE 2022-02-14    2022-02-14     US       1                      1 day                 inc hosp        2022-02-15      quan…    0.25 
+ 8 PSI-DICE 2022-02-14    2022-02-14     US       1                      1 day                 inc hosp        2022-02-15      quan…    0.3  
+ 9 PSI-DICE 2022-02-14    2022-02-14     US       1                      1 day                 inc hosp        2022-02-15      quan…    0.35 
+10 PSI-DICE 2022-02-14    2022-02-14     US       1                      1 day                 inc hosp        2022-02-15      quan…    0.4  
+# ℹ 34,766 more rows
+# ℹ 7 more variables: value <dbl>, location_name <chr>, population <dbl>, geo_type <chr>, geo_value <chr>, abbreviation <chr>,
+#   full_location_name <chr>
+# ℹ Use `print(n = ...)` to see more rows
+[1] "2022-02-14"
+null device 
+          1 
+[1] "2022-02-14"
+# A tibble: 34,776 × 16
+   model    forecast_date location horizon temporal_resolution target_variable target_end_date type   quantile value location_name population
+   <chr>    <date>        <chr>      <dbl> <chr>               <chr>           <date>          <chr>     <dbl> <dbl> <chr>              <dbl>
+ 1 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.01  2606. United States  332875137
+ 2 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.025 3397. United States  332875137
+ 3 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.05  4263. United States  332875137
+ 4 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.1   5242. United States  332875137
+ 5 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.15  5934. United States  332875137
+ 6 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.2   6475. United States  332875137
+ 7 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.25  6936. United States  332875137
+ 8 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.3   7342. United States  332875137
+ 9 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.35  7737. United States  332875137
+10 PSI-DICE 2022-02-14    US             1 day                 inc hosp        2022-02-15      quant…    0.4   8124. United States  332875137
+# ℹ 34,766 more rows
+# ℹ 4 more variables: geo_type <chr>, geo_value <chr>, abbreviation <chr>, full_location_name <chr>
+# ℹ Use `print(n = ...)` to see more rows
+[1] "2022-02-14"
+# A tibble: 34,776 × 11
+   location horizon temporal_resolution target_variable target_end_date type     quantile forecast_count value model        forecast_date
+   <chr>      <dbl> <chr>               <chr>           <date>          <chr>       <dbl>          <int> <dbl> <chr>        <date>       
+ 1 01             1 day                 inc hosp        2022-02-15      quantile    0.01               1  39.0 ensemble-100 2022-02-14   
+ 2 01             1 day                 inc hosp        2022-02-15      quantile    0.025              1  51.0 ensemble-100 2022-02-14   
+ 3 01             1 day                 inc hosp        2022-02-15      quantile    0.05               1  67   ensemble-100 2022-02-14   
+ 4 01             1 day                 inc hosp        2022-02-15      quantile    0.1                1  88.9 ensemble-100 2022-02-14   
+ 5 01             1 day                 inc hosp        2022-02-15      quantile    0.15               1  99   ensemble-100 2022-02-14   
+ 6 01             1 day                 inc hosp        2022-02-15      quantile    0.2                1 112   ensemble-100 2022-02-14   
+ 7 01             1 day                 inc hosp        2022-02-15      quantile    0.25               1 124   ensemble-100 2022-02-14   
+ 8 01             1 day                 inc hosp        2022-02-15      quantile    0.3                1 131   ensemble-100 2022-02-14   
+ 9 01             1 day                 inc hosp        2022-02-15      quantile    0.35               1 140   ensemble-100 2022-02-14   
+10 01             1 day                 inc hosp        2022-02-15      quantile    0.4                1 148.  ensemble-100 2022-02-14   
+# ℹ 34,766 more rows
+# ℹ Use `print(n = ...)` to see more rows
+# A tibble: 34,776 × 11
+   location horizon temporal_resolution target_variable target_end_date type     quantile forecast_count value model        forecast_date
+   <chr>      <dbl> <chr>               <chr>           <date>          <chr>       <dbl>          <int> <dbl> <chr>        <date>       
+ 1 01             1 day                 inc hosp        2022-02-15      quantile    0.01               1  39.0 ensemble-100 2022-02-14   
+ 2 01             1 day                 inc hosp        2022-02-15      quantile    0.025              1  51.0 ensemble-100 2022-02-14   
+ 3 01             1 day                 inc hosp        2022-02-15      quantile    0.05               1  67   ensemble-100 2022-02-14   
+ 4 01             1 day                 inc hosp        2022-02-15      quantile    0.1                1  88.9 ensemble-100 2022-02-14   
+ 5 01             1 day                 inc hosp        2022-02-15      quantile    0.15               1  99   ensemble-100 2022-02-14   
+ 6 01             1 day                 inc hosp        2022-02-15      quantile    0.2                1 112   ensemble-100 2022-02-14   
+ 7 01             1 day                 inc hosp        2022-02-15      quantile    0.25               1 124   ensemble-100 2022-02-14   
+ 8 01             1 day                 inc hosp        2022-02-15      quantile    0.3                1 131   ensemble-100 2022-02-14   
+ 9 01             1 day                 inc hosp        2022-02-15      quantile    0.35               1 140   ensemble-100 2022-02-14   
+10 01             1 day                 inc hosp        2022-02-15      quantile    0.4                1 148.  ensemble-100 2022-02-14   
+# ℹ 34,766 more rows
+# ℹ Use `print(n = ...)` to see more rows
+# A tibble: 34,776 × 11
+   location horizon temporal_resolution target_variable target_end_date type     quantile forecast_count value model        forecast_date
+   <chr>      <dbl> <chr>               <chr>           <date>          <chr>       <dbl>          <int> <dbl> <chr>        <date>       
+ 1 01             1 day                 inc hosp        2022-02-15      quantile    0.01               1  39.0 ensemble-100 2022-02-14   
+ 2 01             1 day                 inc hosp        2022-02-15      quantile    0.025              1  51.0 ensemble-100 2022-02-14   
+ 3 01             1 day                 inc hosp        2022-02-15      quantile    0.05               1  67   ensemble-100 2022-02-14   
+ 4 01             1 day                 inc hosp        2022-02-15      quantile    0.1                1  88.9 ensemble-100 2022-02-14   
+ 5 01             1 day                 inc hosp        2022-02-15      quantile    0.15               1  99   ensemble-100 2022-02-14   
+ 6 01             1 day                 inc hosp        2022-02-15      quantile    0.2                1 112   ensemble-100 2022-02-14   
+ 7 01             1 day                 inc hosp        2022-02-15      quantile    0.25               1 124   ensemble-100 2022-02-14   
+ 8 01             1 day                 inc hosp        2022-02-15      quantile    0.3                1 131   ensemble-100 2022-02-14   
+ 9 01             1 day                 inc hosp        2022-02-15      quantile    0.35               1 140   ensemble-100 2022-02-14   
+10 01             1 day                 inc hosp        2022-02-15      quantile    0.4                1 148.  ensemble-100 2022-02-14   
+# ℹ 34,766 more rows
+# ℹ Use `print(n = ...)` to see more rows
+# A tibble: 34,776 × 11
+   location horizon temporal_resolution target_variable target_end_date type     quantile forecast_count value model        forecast_date
+   <chr>      <dbl> <chr>               <chr>           <date>          <chr>       <dbl>          <int> <dbl> <chr>        <date>       
+ 1 01             1 day                 inc hosp        2022-02-15      quantile    0.01               1  39.0 ensemble-100 2022-02-14   
+ 2 01             1 day                 inc hosp        2022-02-15      quantile    0.025              1  51.0 ensemble-100 2022-02-14   
+ 3 01             1 day                 inc hosp        2022-02-15      quantile    0.05               1  67   ensemble-100 2022-02-14   
+ 4 01             1 day                 inc hosp        2022-02-15      quantile    0.1                1  88.9 ensemble-100 2022-02-14   
+ 5 01             1 day                 inc hosp        2022-02-15      quantile    0.15               1  99   ensemble-100 2022-02-14   
+ 6 01             1 day                 inc hosp        2022-02-15      quantile    0.2                1 112   ensemble-100 2022-02-14   
+ 7 01             1 day                 inc hosp        2022-02-15      quantile    0.25               1 124   ensemble-100 2022-02-14   
+ 8 01             1 day                 inc hosp        2022-02-15      quantile    0.3                1 131   ensemble-100 2022-02-14   
+ 9 01             1 day                 inc hosp        2022-02-15      quantile    0.35               1 140   ensemble-100 2022-02-14   
+10 01             1 day                 inc hosp        2022-02-15      quantile    0.4                1 148.  ensemble-100 2022-02-14   
+# ℹ 34,766 more rows
+# ℹ Use `print(n = ...)` to see more rows
+# A tibble: 9,616 × 8
+   model                      target_variable target_end_date location value abbreviation location_name  population
+   <chr>                      <chr>           <date>          <chr>    <dbl> <chr>        <chr>               <dbl>
+ 1 Observed Data (HealthData) inc flu hosp    2020-01-25      01           0 AL           Alabama           4903185
+ 2 Observed Data (HealthData) inc flu hosp    2020-01-25      15           0 HI           Hawaii            1415872
+ 3 Observed Data (HealthData) inc flu hosp    2020-01-25      18           0 IN           Indiana           6732219
+ 4 Observed Data (HealthData) inc flu hosp    2020-01-25      27           0 MN           Minnesota         5639632
+ 5 Observed Data (HealthData) inc flu hosp    2020-01-25      30           0 MT           Montana           1068778
+ 6 Observed Data (HealthData) inc flu hosp    2020-01-25      37           0 NC           North Carolina   10488084
+ 7 Observed Data (HealthData) inc flu hosp    2020-01-25      48           0 TX           Texas            28995881
+ 8 Observed Data (HealthData) inc flu hosp    2020-01-25      US           0 US           US              332875137
+ 9 Observed Data (HealthData) inc flu hosp    2020-02-01      01           0 AL           Alabama           4903185
+10 Observed Data (HealthData) inc flu hosp    2020-02-01      15           0 HI           Hawaii            1415872
+# ℹ 9,606 more rows
+# ℹ Use `print(n = ...)` to see more rows
+_num="135"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="136"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="137"' ../tacc-scripts/create-and-score-ensembles.R
 R CMD BATCH --no-restore --no-save '--args analysis_name="hosp2" ensemble_num="138"' ../tacc-scripts/create-and-score-ensembles.R
